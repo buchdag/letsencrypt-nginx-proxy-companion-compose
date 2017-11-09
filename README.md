@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/buchdag/letsencrypt-nginx-proxy-companion-compose.svg?branch=master)](https://travis-ci.org/buchdag/letsencrypt-nginx-proxy-companion-compose)
 
 ## letsencrypt_nginx_proxy_companion with docker-compose
 
@@ -17,12 +18,13 @@ This repository contains reference docker-compose files for a variety of **nginx
     └── compose-v3
         ├── environment
         └── labels
-
 ```
+
+Those compose files use my own [duch/letsencrypt_nginx_proxy_companion](https://github.com/buchdag/letsencrypt-nginx-proxy-companion) image but they'll also work with [the original image from JrCs](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion).
 
 ### Before your start
 
-Be sure to be familiar with the [basic, non compose use of this container with nginx-proxy](https://github.com/buchdag/letsencrypt-nginx-proxy-companion).
+Be sure to be familiar with the [basic, non compose use of this container with nginx-proxy](https://github.com/buchdag/letsencrypt-nginx-proxy-companion/blob/master/README.md).
 
 All the docker-compose file assume the existence of a docker network called `nginx-proxy`. You'll have to create it with `docker network create nginx-proxy` before you can use any of the example file.
 
