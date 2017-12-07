@@ -2,7 +2,7 @@
 
 ## letsencrypt_nginx_proxy_companion with docker-compose
 
-This repository contains reference docker-compose files for a variety of **nginx-proxy** with **letsencrypt_nginx_proxy_companion** setups :
+This repository contains reference docker-compose files for a variety of [nginx-proxy](https://github.com/jwilder/nginx-proxy) with [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion) setups :
 
 ```
 .
@@ -20,15 +20,13 @@ This repository contains reference docker-compose files for a variety of **nginx
         └── labels
 ```
 
-Those compose files use my own [duch/letsencrypt_nginx_proxy_companion](https://github.com/buchdag/letsencrypt-nginx-proxy-companion) image but they'll also work with [the original image from JrCs](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion).
-
 ### Before your start
 
 Be sure to be familiar with the [basic, non compose use of this container with nginx-proxy](https://github.com/buchdag/letsencrypt-nginx-proxy-companion/blob/master/README.md).
 
 All the docker-compose file assume the existence of a docker network called `nginx-proxy`. You'll have to create it with `docker network create nginx-proxy` before you can use any of the example file.
 
-For **letsencrypt_nginx_proxy_companion** to work properly, it needs to know the id of the nginx-proxy container, or the id of both the nginx and docker-gen containers in a three container setup.
+For **letsencrypt-nginx-proxy-companion** to work properly, it needs to know the id of the nginx-proxy container, or the id of both the nginx and docker-gen containers in a three container setup.
 
 If you start your stack using the `docker run` commands from the examples, the letsencrypt container will automatically find the id of the nginx (or nginx-proxy) container through the volume it gets with the `--volumes_from` option.
 

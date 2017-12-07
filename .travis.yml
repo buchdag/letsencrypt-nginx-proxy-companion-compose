@@ -10,7 +10,7 @@ addons:
 
 env:
   global:
-    - IMAGE=duch/letsencrypt-nginx-proxy-companion
+    - IMAGE=jrcs/letsencrypt-nginx-proxy-companion
     - COMPOSE_VERSION=1.16.1
     - YAML_VERSION=1.13.1
   matrix:

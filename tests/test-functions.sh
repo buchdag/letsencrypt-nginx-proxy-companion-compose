@@ -15,7 +15,7 @@ function run_le_container {
     -e "DEBUG=true" \
     -e "ACME_CA_URI=http://${3:?}:4000/directory" \
     -e "ACME_TOS_HASH=b16e15764b8bc06c5c3f9f19bc8b99fa48e7894aa5a6ccdad65da49bbf564793" \
-    duch/letsencrypt-nginx-proxy-companion
+    jrcs/letsencrypt-nginx-proxy-companion
 }
 
 wait_for_dhparam() {

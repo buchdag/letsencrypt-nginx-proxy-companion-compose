@@ -18,7 +18,7 @@ services:
     restart: always
 
   letsencrypt:
-    image: duch/letsencrypt-nginx-proxy-companion
+    image: jrcs/letsencrypt-nginx-proxy-companion
     container_name: nginx-proxy-le
     depends_on:
       - nginx-proxy
