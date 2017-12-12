@@ -2,7 +2,7 @@
 
 set -e
 
-test_domain="compose.example.com"
+test_domain="le1.wtf"
 boulder_ip="$(ifconfig docker0 | grep "inet addr:" | cut -d: -f2 | awk '{ print $1}')"
 
 # shellcheck source=test-functions.sh
