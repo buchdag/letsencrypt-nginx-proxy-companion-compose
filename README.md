@@ -22,7 +22,7 @@ This repository contains reference docker-compose files for a variety of [nginx-
 
 ### Before your start
 
-Be sure to be familiar with the [basic, non compose use of this container with nginx-proxy](https://github.com/buchdag/letsencrypt-nginx-proxy-companion/blob/master/README.md).
+Be sure to be familiar with the [basic, non compose use of this container with nginx-proxy](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion/blob/master/README.md).
 
 All the docker-compose file assume the existence of a docker network called `nginx-proxy`. You'll have to create it with `docker network create nginx-proxy` before you can use any of the example file.
 
