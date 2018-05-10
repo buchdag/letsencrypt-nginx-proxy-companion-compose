@@ -3,7 +3,7 @@
 set -e
 
 test_domain="le1.wtf"
-boulder_ip="$(ifconfig docker0 | grep "inet addr:" | cut -d: -f2 | awk '{ print $1}')"
+boulder_ip="10.77.77.1"
 
 # shellcheck source=test-functions.sh
 source ${TRAVIS_BUILD_DIR}/tests/test-functions.sh
