@@ -14,8 +14,7 @@ setup_boulder() {
   cd $GOPATH/src/github.com/letsencrypt/boulder
   sed --in-place 's/ 5002/ 80/g' test/config/va.json
   sed --in-place 's/ 5001/ 443/g' test/config/va.json
-  docker-compose pull
-  docker-compose build
+  docker-compose build --pull
   docker-compose run \
     -e FAKE_DNS=$nginx_proxy_ip \
     --service-ports \
