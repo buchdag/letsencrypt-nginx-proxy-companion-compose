@@ -12,7 +12,7 @@ env:
   global:
     - IMAGE=jrcs/letsencrypt-nginx-proxy-companion
     - COMPOSE_VERSION=1.21.1
-    - YAML_VERSION=1.13.1
+    - YQ_VERSION=1.15.0
   matrix:
     - TEST_FILE=2-containers/compose-v2/docker-compose.yaml
     - TEST_FILE=2-containers/compose-v3/environment/docker-compose.yaml
@@ -27,9 +27,9 @@ before_install:
   - curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > .docker-compose.temp
   - sudo mv .docker-compose.temp /usr/local/bin/docker-compose
   - sudo chmod +x /usr/local/bin/docker-compose
-  - curl -L https://github.com/mikefarah/yaml/releases/download/1.13.1/yaml_linux_amd64 > .yaml.temp
-  - sudo mv .yaml.temp /usr/local/bin/yaml
-  - sudo chmod +x /usr/local/bin/yaml
+  - curl -L https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64 > .yq.temp
+  - sudo mv .yq.temp /usr/local/bin/yq
+  - sudo chmod +x /usr/local/bin/yq
 
 install:
   - docker network create nginx-proxy -o "com.docker.network.bridge.name"="nginx-proxy"

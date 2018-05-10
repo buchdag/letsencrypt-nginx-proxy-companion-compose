@@ -12,25 +12,25 @@ echo "Testing compose file $1"
 
 cp -f "$1" ./
 
-letsencrypt_container_name=$(yaml read docker-compose.yaml services.letsencrypt.container_name)
+letsencrypt_container_name=$(yq read docker-compose.yaml services.letsencrypt.container_name)
 
-yaml write --inplace docker-compose.yaml \
+yq write --inplace docker-compose.yaml \
   services.letsencrypt.environment[+] \
   DEBUG=true
 
-yaml write --inplace docker-compose.yaml \
+yq write --inplace docker-compose.yaml \
   services.letsencrypt.environment[+] \
   ACME_CA_URI=http://${boulder_ip}:4000/directory
 
-yaml write --inplace docker-compose.yaml \
+yq write --inplace docker-compose.yaml \
   services.letsencrypt.environment[+] \
   ACME_TOS_HASH=b16e15764b8bc06c5c3f9f19bc8b99fa48e7894aa5a6ccdad65da49bbf564793
 
-yaml write --inplace docker-compose.yaml \
+yq write --inplace docker-compose.yaml \
   services.letsencrypt.extra_hosts[+] \
   "boulder:${boulder_ip}"
 
-yaml read docker-compose.yaml
+yq read docker-compose.yaml
 
 docker-compose -p nginx-proxy create
 
