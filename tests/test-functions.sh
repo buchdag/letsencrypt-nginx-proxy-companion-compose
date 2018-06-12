@@ -2,16 +2,6 @@
 
 set -e
 
-wait_for_dhparam() {
-  sleep 1
-  echo -n "Waiting for the ${1:?} container to generate a DH parameters file."
-  until docker exec ${1:?} [ -f /etc/nginx/certs/dhparam.pem ]; do
-    sleep 5
-    echo -n "."
-  done
-  echo " Done."
-}
-
 wait_for_cert() {
   local i=0
   echo "Waiting for the ${2:?} container to generate the certificate for ${1:?}."

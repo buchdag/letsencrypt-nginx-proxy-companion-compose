@@ -32,15 +32,7 @@ yq write --inplace docker-compose.yaml \
 
 yq read docker-compose.yaml
 
-docker-compose -p nginx-proxy create
-
-docker run --name helper -v nginx-proxy_certs:/etc/nginx/certs busybox true
-docker cp ${TRAVIS_BUILD_DIR}/tests/dhparam.pem helper:/etc/nginx/certs
-docker rm helper
-
 docker-compose -p nginx-proxy up -d
-
-wait_for_dhparam $letsencrypt_container_name
 
 docker run --rm --detach \
   --name webapp-test \
