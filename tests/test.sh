@@ -30,6 +30,8 @@ yq read docker-compose.yaml
 
 docker-compose -p nginx-proxy up -d
 
+sleep 20
+
 docker run --rm --detach \
   --name webapp-test \
   --network nginx-proxy \
