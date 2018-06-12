@@ -2,22 +2,6 @@
 
 set -e
 
-function get_base_domain {
-  awk -F ',' '{print $1}' <(echo ${1:?})
-}
-
-function run_le_container {
-  docker run -d \
-    --name ${1:?} \
-    --volumes-from ${2:?} \
-    -v /var/run/docker.sock:/var/run/docker.sock:ro \
-    --add-host boulder:${3:?} \
-    -e "DEBUG=true" \
-    -e "ACME_CA_URI=http://${3:?}:4000/directory" \
-    -e "ACME_TOS_HASH=b16e15764b8bc06c5c3f9f19bc8b99fa48e7894aa5a6ccdad65da49bbf564793" \
-    jrcs/letsencrypt-nginx-proxy-companion
-}
-
 wait_for_dhparam() {
   sleep 1
   echo -n "Waiting for the ${1:?} container to generate a DH parameters file."
