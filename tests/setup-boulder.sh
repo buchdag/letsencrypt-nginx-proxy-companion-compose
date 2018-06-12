@@ -16,12 +16,12 @@ setup_boulder() {
   sed --in-place 's/ 5002/ 80/g' test/config/va.json
   sed --in-place 's/ 5001/ 443/g' test/config/va.json
   docker-compose build --pull
-  docker-compose run \
+  docker-compose run -d \
     --use-aliases \
     --name boulder \
     -e FAKE_DNS=$nginx_proxy_ip \
     --service-ports \
-    boulder &
+    boulder
   cd -
 }
 

@@ -45,3 +45,4 @@ script:
 
 after_failure:
   - docker-compose -p nginx-proxy logs
+  - docker logs boulder
