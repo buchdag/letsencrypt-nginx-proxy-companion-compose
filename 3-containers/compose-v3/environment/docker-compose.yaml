@@ -30,7 +30,7 @@ services:
     restart: always
 
   letsencrypt:
-    image: jrcs/letsencrypt-nginx-proxy-companion
+    image: jrcs/letsencrypt-nginx-proxy-companion:dev
     container_name: nginx-proxy-le
     depends_on:
       - nginx-proxy
