@@ -43,6 +43,6 @@ before_script:
 script:
   - tests/test.sh $TEST_FILE
 
-after_failure:
+after_script:
   - docker-compose -p nginx-proxy logs
   - docker logs boulder
