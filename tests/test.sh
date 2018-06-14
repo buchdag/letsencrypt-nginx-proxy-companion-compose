@@ -22,6 +22,14 @@ yq write --inplace docker-compose.yaml \
   services.letsencrypt.environment[+] \
   ACME_CA_URI=http://${boulder_ip}:4000/directory
 
+yq write --inplace docker-compose.yaml \
+  services.letsencrypt.environment[+] \
+  DHPARAM_BITS=256
+
+yq write --inplace docker-compose.yaml \
+  services.nginx-proxy.environment[+] \
+  DHPARAM_BITS=256
+
 yq read docker-compose.yaml
 
 docker-compose -p nginx-proxy up -d
