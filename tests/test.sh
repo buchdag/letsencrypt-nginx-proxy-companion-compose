@@ -15,16 +15,20 @@ cp -f "$1" ./
 letsencrypt_container_name=$(yq read docker-compose.yaml services.letsencrypt.container_name)
 
 yq write --inplace docker-compose.yaml \
+  services.nginx-proxy.environment[+] \
+  DHPARAM_BITS=256
+
+yq write --inplace docker-compose.yaml \
   services.letsencrypt.environment[+] \
   DEBUG=true
 
 yq write --inplace docker-compose.yaml \
   services.letsencrypt.environment[+] \
-  ACME_CA_URI=http://${boulder_ip}:4000/directory
+  DHPARAM_BITS=256
 
 yq write --inplace docker-compose.yaml \
   services.letsencrypt.environment[+] \
-  ACME_TOS_HASH=b16e15764b8bc06c5c3f9f19bc8b99fa48e7894aa5a6ccdad65da49bbf564793
+  ACME_CA_URI=http://${boulder_ip}:4000/directory
 
 yq read docker-compose.yaml
 
