@@ -10,9 +10,10 @@ setup_boulder() {
 
   export GOPATH=${TRAVIS_BUILD_DIR}/go
   [[ ! -d $GOPATH/src/github.com/letsencrypt/boulder ]] \
-    && git clone --depth=1 https://github.com/letsencrypt/boulder \
+    && git clone https://github.com/letsencrypt/boulder \
       $GOPATH/src/github.com/letsencrypt/boulder
   cd $GOPATH/src/github.com/letsencrypt/boulder
+  git checkout release-2019-06-17
   sed --in-place 's/ 5002/ 80/g' test/config/va.json
   sed --in-place 's/ 5001/ 443/g' test/config/va.json
   docker-compose build --pull
