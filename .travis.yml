@@ -11,8 +11,8 @@ addons:
 env:
   global:
     - IMAGE=jrcs/letsencrypt-nginx-proxy-companion
-    - COMPOSE_VERSION=1.23.2
-    - YQ_VERSION=2.2.0
+    - COMPOSE_VERSION=1.24.0
+    - YQ_VERSION=2.4.0
   matrix:
     - TEST_FILE=2-containers/compose-v2/docker-compose.yaml
     - TEST_FILE=2-containers/compose-v3/environment/docker-compose.yaml
