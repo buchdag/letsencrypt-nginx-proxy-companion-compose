@@ -2,7 +2,7 @@
 
 set -e
 
-acme_endpoint="http://boulder:4000/directory"
+acme_endpoint="http://boulder:4001/directory"
 
 setup_boulder() {
   # Per the boulder README:

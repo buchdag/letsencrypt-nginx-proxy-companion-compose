@@ -20,7 +20,7 @@ yq write --inplace docker-compose.yaml \
 
 yq write --inplace docker-compose.yaml \
   services.letsencrypt.environment[+] \
-  ACME_CA_URI=http://${boulder_ip}:4000/directory
+  ACME_CA_URI=http://${boulder_ip}:4001/directory
 
 yq write --inplace docker-compose.yaml \
   services.letsencrypt.environment[+] \
