@@ -1,8 +1,7 @@
 os: linux
-dist: xenial
-sudo: required
+dist: bionic
 
-language: bash
+language: shell
 
 addons:
   hosts:
@@ -14,7 +13,7 @@ env:
     - IMAGE=jrcs/letsencrypt-nginx-proxy-companion
     - COMPOSE_VERSION=1.25.4
     - YQ_VERSION=3.2.1
-  matrix:
+  jobs:
     - TEST_FILE=2-containers/compose-v2/docker-compose.yaml
     - TEST_FILE=2-containers/compose-v3/environment/docker-compose.yaml
     - TEST_FILE=2-containers/compose-v3/labels/docker-compose.yaml
