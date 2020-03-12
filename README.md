@@ -2,7 +2,7 @@
 
 ## letsencrypt_nginx_proxy_companion with docker-compose
 
-This repository contains reference docker-compose files for a variety of [nginx-proxy](https://github.com/jwilder/nginx-proxy) with [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion) setups :
+This repository contains reference docker-compose files for a variety of [nginx-proxy](https://github.com/nginx-proxy/nginx-proxy) with [letsencrypt-nginx-proxy-companion](https://github.com/nginx-proxy/docker-letsencrypt-nginx-proxy-companion) setups :
 
 ```
 .
@@ -22,7 +22,7 @@ This repository contains reference docker-compose files for a variety of [nginx-
 
 ### Before your start
 
-Be sure to be familiar with the [basic, non compose use of this container with nginx-proxy](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion/blob/master/README.md).
+Be sure to be familiar with the [basic, non compose use of this container with nginx-proxy](https://github.com/nginx-proxy/docker-letsencrypt-nginx-proxy-companion/blob/master/README.md).
 
 All the docker-compose file assume the existence of a docker network called `nginx-proxy`. You'll have to create it with `docker network create nginx-proxy` before you can use any of the example file.
 
@@ -44,7 +44,7 @@ The docker-compose files on `environment` subfolders use the environment variabl
 
 The docker-compose files on `labels` subfolders use the label method.
 
-The advantage the `labels` method has over the `environment` method is enabling the use of the letsencrypt-nginx-proxy-docker-companion in Swarm Mode or in Docker Cloud, where containers names are dynamic. Howhever if you intend to do so, as upstream docker-gen lacks the ability to identify containers from labels, you'll need both to use the three container setup and to replace jwilder/docker-gen with a fork that has this ability like [herlderco/docker-gen](https://github.com/helderco/docker-gen). Be advised that for now, this works to a very limited extent [(everything has to be on the same node)](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion/pull/231#issuecomment-330624331).
+The advantage the `labels` method has over the `environment` method is enabling the use of the letsencrypt-nginx-proxy-docker-companion in Swarm Mode or in Docker Cloud, where containers names are dynamic. Howhever if you intend to do so, as upstream docker-gen lacks the ability to identify containers from labels, you'll need both to use the three container setup and to replace jwilder/docker-gen with a fork that has this ability like [herlderco/docker-gen](https://github.com/helderco/docker-gen). Be advised that for now, this works to a very limited extent [(everything has to be on the same node)](https://github.com/nginx-proxy/docker-letsencrypt-nginx-proxy-companion/pull/231#issuecomment-330624331).
 
 As for the rest of the subfolders:
 
