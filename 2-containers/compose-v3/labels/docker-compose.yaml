@@ -29,6 +29,7 @@ services:
       - html:/usr/share/nginx/html
       - dhparam:/etc/nginx/dhparam:ro
       - certs:/etc/nginx/certs
+      - acme:/etc/acme.sh
       - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: always
 
@@ -38,6 +39,7 @@ volumes:
   html:
   dhparam:
   certs:
+  acme:
 
 networks:
   default:
