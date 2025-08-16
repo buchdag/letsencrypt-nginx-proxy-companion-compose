@@ -78,7 +78,7 @@ docker run -d \
 
 Or with a compose file:
 
-```
+```yaml
 version: '3'
 
 services:
